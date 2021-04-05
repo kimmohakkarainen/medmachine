@@ -1,10 +1,19 @@
-import "./styles.css";
+import Menu from "./menu";
+import Tyolista from "./tyolista";
+import Devices from "./devices";
+import Route from "react-router-dom/Route";
+import Switch from "react-router-dom/Switch";
+import BrowserRouter from "react-router-dom/BrowserRouter";
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <Switch>
+        <Route exact path="/" component={Tyolista} />
+        <Route path="/devices" component={Devices} />
+        <Route path="/about" component={Tyolista} />
+      </Switch>
+    </BrowserRouter>
   );
 }
