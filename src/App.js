@@ -4,9 +4,7 @@ import Devices from "./devices";
 import Allocation from "./allocation";
 import Projects from "./projects";
 import Todo from "./todo";
-import Route from "react-router-dom/Route";
-import Switch from "react-router-dom/Switch";
-import BrowserRouter from "react-router-dom/BrowserRouter";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (

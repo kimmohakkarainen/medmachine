@@ -1,582 +1,69 @@
+import { useState } from "react";
 import { Card, ListGroup, Accordion, Table } from "react-bootstrap";
-
-const data = [
-  {
-    key: "1",
-    title: ["Klasun tiimi", "Vapaana 24", "Varattu 12", "Yliresursoitu 2"],
-
-    thead: [
-      "Viikot",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34",
-      "35",
-      "36",
-      "37",
-      "38",
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45",
-      "46",
-      "47",
-      "48",
-      "49",
-      "50",
-      "51"
-    ],
-    tbody: [
-      [
-        "Matti",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Teppo",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ]
-    ]
-  },
-  {
-    key: "2",
-    title: ["Andreaksen tiimi", "Vapaana 24", "Varattu 12", "Yliresursoitu 2"],
-    thead: [
-      "Viikot",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34",
-      "35",
-      "36",
-      "37",
-      "38",
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45",
-      "46",
-      "47",
-      "48",
-      "49",
-      "50",
-      "51"
-    ],
-    tbody: [
-      [
-        "Matti",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Teppo",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ]
-    ]
-  },
-  {
-    key: "3",
-    title: ["Sannan tiimi", "Vapaana 24", "Varattu 12", "Yliresursoitu 2"],
-    thead: [
-      "Viikot",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34",
-      "35",
-      "36",
-      "37",
-      "38",
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45",
-      "46",
-      "47",
-      "48",
-      "49",
-      "50",
-      "51"
-    ],
-    tbody: [
-      [
-        "Matti",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Teppo",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ]
-    ]
-  },
-  {
-    key: "4",
-    title: ["Marian tiimi", "Vapaana 24", "Varattu 12", "Yliresursoitu 2"],
-    thead: [
-      "Viikot",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34",
-      "35",
-      "36",
-      "37",
-      "38",
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45",
-      "46",
-      "47",
-      "48",
-      "49",
-      "50",
-      "51"
-    ],
-    tbody: [
-      [
-        "Matti",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Maija",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ],
-      [
-        "Teppo",
-        "X",
-        "",
-        "X",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X",
-        "X",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "X"
-      ]
-    ]
-  }
-];
+import { data } from "./data";
+import AllocationModal from "./allocationmodal";
 
 export default function Allocation() {
+  const [modal, setModal] = useState(null);
+  console.log(modal);
+
   return (
-    <Card>
-      <Card.Header>Tekijät</Card.Header>
-      <Card.Body>
-        <Accordion defaultActiveKey="1">
-          {data.map((team) => {
-            console.log(team);
-            return (
-              <Accordion.Item eventKey={team.key}>
-                <Accordion.Header>
-                  <Table borderless style={{ marginBottom: "0px" }}>
-                    <thead style={{ borderStyle: "none" }}>
-                      <tr>
-                        {team.title.map((col) => {
-                          return <th style={{ width: "10%" }}>{col}</th>;
+    <>
+      {modal && (
+        <AllocationModal value={modal} handleClose={() => setModal(null)} />
+      )}
+      <Card>
+        <Card.Header>Tekijät</Card.Header>
+        <Card.Body>
+          <Accordion defaultActiveKey="1">
+            {data.map((team) => {
+              console.log(team);
+              return (
+                <Accordion.Item eventKey={team.key}>
+                  <Accordion.Header>
+                    <Table borderless style={{ marginBottom: "0px" }}>
+                      <thead style={{ borderStyle: "none" }}>
+                        <tr>
+                          {team.title.map((col) => {
+                            return <th style={{ width: "10%" }}>{col}</th>;
+                          })}
+                        </tr>
+                      </thead>
+                    </Table>
+                  </Accordion.Header>
+                  <Accordion.Body style={{ paddingTop: "0px" }}>
+                    <Table borderless>
+                      <thead style={{ borderStyle: "none" }}>
+                        <tr>
+                          {team.thead.map((col) => {
+                            return <th>{col}</th>;
+                          })}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {team.tbody.map((row) => {
+                          return (
+                            <tr>
+                              {row.map((c) => {
+                                const nimi = row[0];
+                                console.log(nimi);
+                                return (
+                                  <td onClick={() => setModal(nimi)}>{c}</td>
+                                );
+                              })}
+                            </tr>
+                          );
                         })}
-                      </tr>
-                    </thead>
-                  </Table>
-                </Accordion.Header>
-                <Accordion.Body style={{ paddingTop: "0px" }}>
-                  <Table borderless>
-                    <thead style={{ borderStyle: "none" }}>
-                      <tr>
-                        {team.thead.map((col) => {
-                          return <th>{col}</th>;
-                        })}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {team.tbody.map((row) => {
-                        return (
-                          <tr>
-                            {row.map((c) => {
-                              return <td>{c}</td>;
-                            })}
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </Table>
-                </Accordion.Body>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Card.Body>
-    </Card>
+                      </tbody>
+                    </Table>
+                  </Accordion.Body>
+                </Accordion.Item>
+              );
+            })}
+          </Accordion>
+        </Card.Body>
+      </Card>
+    </>
   );
 }
 
