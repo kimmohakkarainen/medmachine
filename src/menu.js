@@ -3,8 +3,16 @@ import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
 
 export default function Menu() {
   return (
-    <Navbar bg="primary" variant="dark">
-      <Navbar.Brand>Demo</Navbar.Brand>
+    <Navbar bg="light" variant="secondary">
+      <Navbar.Brand>
+        <img
+          alt=""
+          src="https://www.eth.fi/_media_27972_/logot/ETH-GROUP-LOGO(1).jpg"
+          width="90"
+          height="30"
+          className="d-inline-block align-top"
+        />
+      </Navbar.Brand>
       <Nav className="mr-auto">
         <IndexLinkContainer to="/">
           <Nav.Link>Asiakkaat</Nav.Link>
