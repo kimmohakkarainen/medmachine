@@ -15,7 +15,7 @@ export default function Menu() {
       </Navbar.Brand>
       <Nav className="mr-auto">
         <IndexLinkContainer to="/">
-          <Nav.Link>Summary</Nav.Link>
+          <Nav.Link>Kokonaiskuva</Nav.Link>
         </IndexLinkContainer>
         <IndexLinkContainer to="/customers">
           <Nav.Link>Asiakkaat</Nav.Link>
