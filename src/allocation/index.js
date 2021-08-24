@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, ListGroup, Accordion, Table } from "react-bootstrap";
+import { Card, Accordion, Table } from "react-bootstrap";
 import { data } from "./data";
 import AllocationModal from "./allocationmodal";
 
@@ -15,7 +15,7 @@ export default function Allocation() {
       <Card>
         <Card.Header>Tekijät</Card.Header>
         <Card.Body>
-          <Accordion defaultActiveKey="1">
+          <Accordion defaultActiveKey="0">
             {data.map((team) => {
               console.log(team);
               return (

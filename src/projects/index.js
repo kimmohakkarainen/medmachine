@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, ListGroup, Accordion, Table } from "react-bootstrap";
+import { Card, Accordion, Table } from "react-bootstrap";
 import { data } from "./data";
 import ProjectModal from "./projectmodal";
 
@@ -15,7 +15,7 @@ export default function Projects() {
       <Card>
         <Card.Header>Asiakkaat</Card.Header>
         <Card.Body>
-          <Accordion defaultActiveKey="1">
+          <Accordion defaultActiveKey="0">
             {data.map((team) => {
               console.log(team);
               return (

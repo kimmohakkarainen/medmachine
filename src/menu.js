@@ -3,7 +3,7 @@ import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
 
 export default function Menu() {
   return (
-    <Navbar bg="light" variant="secondary">
+    <Navbar bg="light" variant="light">
       <Navbar.Brand>
         <img
           alt=""
@@ -15,6 +15,9 @@ export default function Menu() {
       </Navbar.Brand>
       <Nav className="mr-auto">
         <IndexLinkContainer to="/">
+          <Nav.Link>Summary</Nav.Link>
+        </IndexLinkContainer>
+        <IndexLinkContainer to="/customers">
           <Nav.Link>Asiakkaat</Nav.Link>
         </IndexLinkContainer>
         <LinkContainer to="/resources">
