@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   Button,
@@ -9,8 +9,27 @@ import {
   Col
 } from "react-bootstrap";
 
+const projects = [
+  "Sooda ja Kattila Oy - jatkuva",
+  "Sooda ja Kattila Oy - huoltoseisokki",
+  "Pannu ja Paine Oy - jatkuva",
+  "Pannu ja Paine Oy - huoltoseisokki",
+  "Pannu ja Paine Oy - Joulupäivystys",
+  "Keinokuitu Oy - jatkuva",
+  "Keinokuitu Oy - huoltoseisokki",
+  "Keinokuitu Oy - Joulupäivystys",
+  "Tehopakkaus Oy - jatkuva",
+  "Tehopakkaus Oy - huoltoseisokki",
+  "Tehopakkaus Oy - Joulupäivystys",
+  "Paineruuvaus Oy - jatkuva",
+  "Paineruuvaus Oy - huoltoseisokki",
+  "Paineruuvaus Oy - Joulupäivystys"
+];
+
 export default function AllocationModal({ value, handleClose, nimi }) {
   console.log(value);
+
+  const [project, setProject] = useState("valitse projekti");
 
   return (
     <Modal show={true} onHide={handleClose}>
@@ -34,17 +53,17 @@ export default function AllocationModal({ value, handleClose, nimi }) {
             <Col xs="8">
               <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                  Valitse projekti
+                  {project}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item>Sooda ja Kattila Oy - jatkuva</Dropdown.Item>
-                  <Dropdown.Item>
-                    Sooda ja Kattila Oy - huoltoseisokki
-                  </Dropdown.Item>
-                  <Dropdown.Item>
-                    Sooda ja Kattila Oy - Joulupäivystys
-                  </Dropdown.Item>
+                  {projects.map((project) => {
+                    return (
+                      <Dropdown.Item onClick={() => setProject(project)}>
+                        {project}
+                      </Dropdown.Item>
+                    );
+                  })}
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
